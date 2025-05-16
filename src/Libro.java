@@ -1,62 +1,77 @@
 public class Libro {
-    private final String titolo;
-    private final String autore;
-    private final int codiceISBN;
-    private final String genere;
+    private String titolo;
+    private String autore;
+    private int codiceISBN;
+    private String genere;
     private Valutazione valutazionePersonale;
-    private boolean statoLettura = false;
+    private StatoLettura statoLettura;
 
-    public static class Builder {
-        private static String titolo;
-        private static String autore;
-        private static int codiceISBN;
-        private static String genere;
-        private Valutazione valutazionePersonale = null;
-        private boolean statoLettura = false;
+    //COSTRUTTORE
+    public Libro(String titolo, String autore, int codiceISBN, String genere) {
+        this.titolo = titolo;
+        this.autore = autore;
+        this.codiceISBN = codiceISBN;
+        this.genere = genere;
+        this.valutazionePersonale = null;
+        this.statoLettura = StatoLettura.DALEGGERE;
+    }
 
-        public Builder(String titolo, String autore,int codiceISBN, String genere) {
-            this.titolo = titolo;
-            this.autore = autore;
-            this.codiceISBN = codiceISBN;
-            this.genere = genere;
-        }
-        public Builder statoLettura(boolean statoLettura) {
-            this.statoLettura = statoLettura;
-            return this;
-        }
-        public Builder valutazionePersonale(Valutazione valutazionePersonale) {
-            this.valutazionePersonale = valutazionePersonale;
-            return this;
-        }
-        public Libro build() {
-            return new Libro(this);
-        }
+   //COSTRUTTORE PER COPIA
+    public Libro(Libro lib) {
+        this.titolo = lib.titolo;
+        this.autore = lib.autore;
+        this.codiceISBN = lib.codiceISBN;
+        this.genere = lib.genere;
+        this.valutazionePersonale = lib.valutazionePersonale;
+        this.statoLettura = lib.statoLettura;
     }
-    private Libro(Builder builder) {
-        titolo = Builder.titolo;
-        autore = Builder.autore;
-        codiceISBN = Builder.codiceISBN;
-        genere = Builder.genere;
-        valutazionePersonale = builder.valutazionePersonale;
-        statoLettura = builder.statoLettura;
-    }
+    //GET TITOLO
     public String getTitolo() {
         return titolo;
     }
+    //SET TITOLO
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+    //GET AUTORE
     public String getAutore() {
         return autore;
     }
+    //SET AUTORE
+    public void setAutore(String autore) {
+        this.autore = autore;
+    }
+    //GET CODICE ISBN
     public int getCodiceISBN() {
         return codiceISBN;
     }
+    //SET CODICE ISBN
+    public void setCodiceISBN(int codiceISBN) {
+        this.codiceISBN = codiceISBN;
+    }
+    //GET GENERE
     public String getGenere() {
         return genere;
     }
+    //SET GENERE
+    public void setGenere(String genere) {
+        this.genere = genere;
+    }
+    //GET VALUTAZIONE
     public Valutazione getValutazionePersonale() {
         return valutazionePersonale;
     }
-    public boolean isStatoLettura() {
+    //SET VALUTAZIONE PERSONALE
+    public void setValutazionePersonale(Valutazione valutazionePersonale) {
+        this.valutazionePersonale = valutazionePersonale;
+    }
+    //GET STATO LETTURA
+    public StatoLettura getStatoLettura() {
         return statoLettura;
+   }
+    // SET STATO LETTURA
+    public void setStatoLettura(StatoLettura statoLettura) {
+        this.statoLettura = statoLettura;
     }
 
 }
