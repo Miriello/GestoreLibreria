@@ -25,12 +25,12 @@ public class GestoreLibriHashMap implements GestoreLibri {
     }
 
     @Override
-    public GestoreLibri ordinaPerTitolo() {
+    public GestoreLibri ordinaPerTitolo(GestoreLibri listaLibri) {
         return null;
     }
 
     @Override
-    public GestoreLibri ordinaPerAutore() {
+    public GestoreLibri ordinaPerAutore(GestoreLibri listaLibri) {
         return null;
     }
 
@@ -43,9 +43,19 @@ public class GestoreLibriHashMap implements GestoreLibri {
     public GestoreLibri filtroStatoLettura(StatoLettura stato) {
         return null;
     }
+    public GestoreLibri filtroAutore(String autore){
+        return null;
+    }
+
+
+    @Override
+    public String toString() {
+        return null;
+    }
 
     @Override
     public Iterator<Libro> iterator() {
         return null;
     }
+
 }

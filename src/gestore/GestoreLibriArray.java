@@ -6,18 +6,15 @@ import java.util.Iterator;
 
 public class GestoreLibriArray implements GestoreLibri {
     private ArrayList<Libro> listaLibri = new ArrayList<>();
-    int size;
 
     @Override
     public void add(Libro lib) {
         listaLibri.add(lib);
-        size++;
     }
 
     @Override
     public void remove(Libro lib) {
         listaLibri.remove(lib);
-        size--;
     }
 
     @Override
@@ -30,31 +27,62 @@ public class GestoreLibriArray implements GestoreLibri {
         return null;
     }
 
-
     @Override
     public int size() {
-        return size;
+        return listaLibri.size();
     }
 
     @Override
-    public GestoreLibri ordinaPerTitolo() {
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        if(listaLibri.isEmpty())
+            return "La libreria è vuota";
+        for (Libro lib : listaLibri){
+            sb.append(lib.toString());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public GestoreLibri ordinaPerTitolo(GestoreLibri listaLibri) {
         return null;
     }
 
     @Override
-    public GestoreLibri ordinaPerAutore() {
+    public GestoreLibri ordinaPerAutore(GestoreLibri listaLibri) {
         return null;
     }
 
     @Override
     public GestoreLibri filtroGenere(String genere) {
-        return null;
+        GestoreLibri gestoreLibri = new GestoreLibriArray();
+        for(Libro lib : listaLibri){
+            if(lib.getGenere().equals(genere))
+                gestoreLibri.add(lib);
+        }
+        return gestoreLibri;
     }
 
     @Override
     public GestoreLibri filtroStatoLettura(StatoLettura stato) {
-        return null;
+        GestoreLibri gestoreLibri = new GestoreLibriArray();
+        for(Libro lib : listaLibri){
+            if(lib.getStatoLettura().equals(stato))
+                gestoreLibri.add(lib);
+        }
+        return gestoreLibri;
     }
+
+    public GestoreLibri filtroAutore(String autore){
+        GestoreLibri gestoreLibri = new GestoreLibriArray();
+        for(Libro lib : listaLibri){
+            if(lib.getAutore().equals(autore))
+                gestoreLibri.add(lib);
+        }
+        return gestoreLibri;
+    }
+
 
     @Override
     public Iterator<Libro> iterator() {
@@ -65,11 +93,11 @@ public class GestoreLibriArray implements GestoreLibri {
 
         @Override
         public boolean hasNext() {
-            return indice<size;
+            return indice< listaLibri.size();
         }
         @Override
         public Libro next() {
-            return null;
+            return listaLibri.get(indice++);
         }
     }
 }

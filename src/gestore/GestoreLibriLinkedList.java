@@ -4,9 +4,9 @@ import libro.*;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.stream.Collectors;
+import java.util.NoSuchElementException;
 
-public class GestoreLibriLinkedList implements GestoreLibri<Libro> {
+public class GestoreLibriLinkedList implements GestoreLibri {
     private LinkedList<Libro> listaLibri = new LinkedList<>();
 
     @Override
@@ -21,7 +21,16 @@ public class GestoreLibriLinkedList implements GestoreLibri<Libro> {
 
     @Override
     public Libro getLibro(String titolo) {
-        return listaLibri.stream().filter(l -> l.getTitolo().equals(titolo)).findFirst().orElse(null);
+        if(listaLibri.isEmpty()){
+            throw new NoSuchElementException("La libreria è vuota");
+        }
+        Iterator<Libro> it = listaLibri.iterator();
+        while(it.hasNext()){
+            Libro lib = it.next();
+            if(lib.getTitolo().equals(titolo))
+                return lib;
+        }
+        return null;
     }
 
     @Override
@@ -29,13 +38,25 @@ public class GestoreLibriLinkedList implements GestoreLibri<Libro> {
         return listaLibri.size();
     }
 
+    public String toString(){
+        Iterator<Libro> it = listaLibri.iterator();
+        StringBuilder sb = new StringBuilder();
+        while(it.hasNext())
+            sb.append(it.next().toString());
+        return sb.toString();
+    }
+
     @Override
-    public GestoreLibri ordinaPerTitolo() {
+    public GestoreLibri ordinaPerTitolo(GestoreLibri listaLibri) {
         return null;
     }
 
     @Override
-    public GestoreLibri ordinaPerAutore() {
+    public GestoreLibri ordinaPerAutore(GestoreLibri listaLibri) {
+        return null;
+    }
+
+    public GestoreLibri filtroAutore(String autore){
         return null;
     }
 
