@@ -2,6 +2,7 @@ package gestore;
 import libro.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class GestoreLibriArray implements GestoreLibri {
@@ -46,12 +47,34 @@ public class GestoreLibriArray implements GestoreLibri {
 
     @Override
     public GestoreLibri ordinaPerTitolo(GestoreLibri listaLibri) {
-        return null;
+        ArrayList<Libro> tmp = new ArrayList<>();
+        GestoreLibri listaLibriOrdinata = new GestoreLibriArray();
+
+        for (Libro lib : listaLibri){
+            tmp.add(lib);
+        }
+        tmp.sort(Comparator.comparing(Libro::getTitolo));
+
+        for(Libro lib : tmp){
+            listaLibriOrdinata.add(lib);
+        }
+        return listaLibriOrdinata;
     }
 
     @Override
     public GestoreLibri ordinaPerAutore(GestoreLibri listaLibri) {
-        return null;
+        ArrayList<Libro> tmp = new ArrayList<>();
+        GestoreLibri listaLibriOrdinata = new GestoreLibriArray();
+
+        for (Libro lib : listaLibri){
+            tmp.add(lib);
+        }
+        tmp.sort(Comparator.comparing(Libro::getAutore));
+
+        for(Libro lib : tmp){
+            listaLibriOrdinata.add(lib);
+        }
+        return listaLibriOrdinata;
     }
 
     @Override
