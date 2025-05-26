@@ -2,7 +2,7 @@ package gestore;
 import libro.*;
 import java.util.Iterator;
 
-public class GestoreLibriHashMap implements GestoreLibri<Libro> {
+public class GestoreLibriHashMap implements GestoreLibri {
 
     @Override
     public void add(Libro lib) {

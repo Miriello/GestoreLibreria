@@ -1,7 +1,7 @@
 package gestore;
 import libro.*;
 
-public interface GestoreLibri<Libro> extends Iterable<Libro>{
+public interface GestoreLibri extends Iterable<Libro>{
     public void add(Libro lib);
 
     public void remove(Libro lib);

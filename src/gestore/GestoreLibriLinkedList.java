@@ -53,6 +53,17 @@ public class GestoreLibriLinkedList implements GestoreLibri<Libro> {
 
     @Override
     public Iterator<Libro> iterator() {
-        return null;
+        return new LibriLinkedListIterator();
+    }
+    private class LibriLinkedListIterator implements Iterator<Libro>{
+        private final Iterator<Libro> iterator = listaLibri.iterator();
+        @Override
+        public boolean hasNext() {
+            return iterator.hasNext();
+        }
+        @Override
+        public Libro next() {
+            return iterator.next();
+        }
     }
 }

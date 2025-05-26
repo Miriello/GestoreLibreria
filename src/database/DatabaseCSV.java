@@ -13,7 +13,7 @@ public class DatabaseCSV implements DatabaseInterface {
 
     @Override
     public void salvaFile(GestoreLibri gestoreLibri) {
-        for( l : gestoreLibri){
+        for(Libro l : gestoreLibri){
 
         }
 
