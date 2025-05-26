@@ -5,8 +5,8 @@ public static void main(String[] args) {
     Libro prova1 = new Libro("il mondo di aefafepatty", "Miefchele", 1221351, "blackhumor", Valutazione.CINQUE, StatoLettura.LETTO);
     System.out.println(prova1.toString());
 
-    GestoreLibriLinkedList Prova = new GestoreLibriLinkedList();
-    Prova.add(prova);Prova.add(prova1);
-    System.out.println(Prova.toString());
+    GestoreLibri gestore = GestoreLibriFactory.create("HashMap");
+    gestore.add(prova);
+    gestore.add(prova1);
 
 }

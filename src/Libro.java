@@ -86,6 +86,7 @@ public class Libro {
     public void setStatoLettura(StatoLettura statoLettura) {
         this.statoLettura = statoLettura;
     }
+    //ToString
     public String toString() {
         return titolo + " - " + autore + " - " + codiceISBN + " - " + genere + " - " + valutazionePersonale + " - " + statoLettura;
     }
