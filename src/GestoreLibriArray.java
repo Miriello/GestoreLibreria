@@ -1,23 +1,19 @@
 import java.util.Iterator;
 
-public class GestoreLibriArray extends GestoreLibriAstratto{
-    private Libro[] lib;
-    private int size ;
+public class GestoreLibriArray<Libro> implements GestoreLibri<Libro> {
 
-    public GestoreLibriArray() {
-        this.lib = new Libro[10];
-    }
-
-    public void add(Libro libro) {
+    @Override
+    public void add(Libro lib) {
 
     }
 
     @Override
-    public void remove(String titolo ) ;
+    public void remove(Libro lib) {
+
     }
 
     @Override
-    public Libro get(int index) {
+    public Libro getLibro(String titolo) {
         return null;
     }
 
@@ -27,31 +23,27 @@ public class GestoreLibriArray extends GestoreLibriAstratto{
     }
 
     @Override
-    public Iterator<Libro> iterator() {
-        return new ArrayLibriIterator();
+    public GestoreLibri ordinaPerTitolo() {
+        return null;
     }
 
-    public class ArrayLibriIterator implements Iterator<Libro>{
-        int indice = 0;
+    @Override
+    public GestoreLibri ordinaPerAutore() {
+        return null;
+    }
 
-        public boolean hasnext(){
-            return indice < size();
-        }
+    @Override
+    public GestoreLibri filtroGenere(String genere) {
+        return null;
+    }
 
-        @Override
-        public boolean hasNext() {
-            return false;
-        }
+    @Override
+    public GestoreLibri filtroStatoLettura(StatoLettura stato) {
+        return null;
+    }
 
-        public Libro next(){
-            if (indice==size);
-        }
-
-        public void remove(){
-
-        }
-
-}
-
-public void main() {
+    @Override
+    public Iterator<Libro> iterator() {
+        return null;
+    }
 }

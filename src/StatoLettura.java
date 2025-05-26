@@ -1,4 +1,5 @@
 public enum StatoLettura {
-    LETTO,INLETTURA,DALEGGERE
-    }
+    LETTO,INLETTURA,DALEGGERE;
+
+}
 
