@@ -1,6 +1,8 @@
+package gestore;
+
 import java.util.Iterator;
 
-public class GestoreLibriArray<Libro> implements GestoreLibri<Libro> {
+public class GestoreLibriHashMap implements GestoreLibri<Libro> {
 
     @Override
     public void add(Libro lib) {

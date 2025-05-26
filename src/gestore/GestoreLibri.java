@@ -1,3 +1,5 @@
+package gestore;
+
 public interface GestoreLibri<Libro> extends Iterable<Libro>{
     public void add(Libro lib);
 
