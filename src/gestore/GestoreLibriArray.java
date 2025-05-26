@@ -1,5 +1,5 @@
 package gestore;
-
+import libro.*;
 import java.util.Iterator;
 
 public class GestoreLibriArray<Libro> implements GestoreLibri<Libro> {

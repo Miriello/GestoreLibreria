@@ -1,7 +1,7 @@
-package Database;
+package database;
 import gestore.GestoreLibri;
 
-public class DatabaseCSV implements DatabaseInterface {
+public class DatabaseJson implements DatabaseInterface{
 
     @Override
     public void salvaFile(GestoreLibri gestoreLibri) {
@@ -9,7 +9,7 @@ public class DatabaseCSV implements DatabaseInterface {
     }
 
     @Override
-    public void caricaFile() {
+    public void caricaFile(String nomeFile) {
 
     }
 }

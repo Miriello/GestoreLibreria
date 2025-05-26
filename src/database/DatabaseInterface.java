@@ -1,10 +1,10 @@
-package Database;
+package database;
 import gestore.GestoreLibri;
 
 public interface DatabaseInterface {
 
     public void salvaFile(GestoreLibri gestoreLibri);
 
-    public void caricaFile();
+    public void caricaFile(String nomeFile);
 
 }

@@ -1,5 +1,7 @@
 package gestore;
 
+import libro.*;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
@@ -39,12 +41,14 @@ public class GestoreLibriLinkedList implements GestoreLibri<Libro> {
 
     @Override
     public GestoreLibri filtroGenere(String genere) {
-        return new GestoreLibriLinkedList(new LinkedList<>(listaLibri.stream().filter(libro -> libro.getGenere().equals(genere)).collect(Collectors.toList())));
+        return null; /* new GestoreLibriLinkedList(new LinkedList<>(listaLibri.stream().filter(libro -> libro.getGenere().equals(genere)).collect(Collectors.toList())));
+        */
     }
 
     @Override
     public GestoreLibri filtroStatoLettura(StatoLettura stato) {
-        return new GestoreLibriLinkedList(new LinkedList<>(listaLibri.stream().filter(libro -> libro.getStatoLettura().equals(stato)).collect(Collectors.toList())));
+        return null; /* new GestoreLibriLinkedList(new LinkedList<>(listaLibri.stream().filter(libro -> libro.getStatoLettura().equals(stato)).collect(Collectors.toList())));
+    */
     }
 
     @Override

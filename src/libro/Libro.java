@@ -1,3 +1,5 @@
+package libro;
+
 public class Libro {
     private String titolo;
     private String autore;
@@ -24,7 +26,7 @@ public class Libro {
         this.genere = genere;
         this.valutazionePersonale = valutazionePersonale;
         this.statoLettura = statoLettura;
-        if (this.statoLettura==StatoLettura.DALEGGERE & this.valutazionePersonale!=null) {
+        if (this.statoLettura== StatoLettura.DALEGGERE & this.valutazionePersonale!=null) {
             throw new IllegalArgumentException("Mai giudicare un libro dalla copertina");
         }
     }

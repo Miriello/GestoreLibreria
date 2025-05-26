@@ -1,5 +1,8 @@
 import gestore.GestoreLibri;
 import gestore.GestoreLibriFactory;
+import libro.Libro;
+import libro.StatoLettura;
+import libro.Valutazione;
 
 public static void main(String[] args) {
     Libro prova = new Libro("il mondo di patty", "Michele", 123451, "blackhumor", Valutazione.CINQUE, StatoLettura.LETTO);
