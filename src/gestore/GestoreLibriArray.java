@@ -98,9 +98,11 @@ public class GestoreLibriArray implements GestoreLibri {
     }
 
     public GestoreLibri filtroAutore(String autore){
-        GestoreLibri gestoreLibri = new GestoreLibriArray();
+        if(autore == null)
+            return GestoreLibriFactory.create("ArrayList");
+        GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
         for(Libro lib : listaLibri){
-            if(lib.getAutore().equals(autore))
+            if(lib.getAutore().equalsIgnoreCase(autore))
                 gestoreLibri.add(lib);
         }
         return gestoreLibri;

@@ -23,6 +23,12 @@ public class GestoreLibreriaTest {
         assertEquals(3, gestoreLibri.size());
     }
     @Test
+    public void testGetAutore(){
+        Libro l = gestoreLibri.getLibro("La coscienza di Zeno");
+        assertEquals("Italo Svevo", l.getAutore());
+    }
+
+    @Test
     public void testGetLibro(){
         Libro l = gestoreLibri.getLibro("La coscienza di Zeno");
         assertEquals("La coscienza di Zeno", l.getTitolo());
@@ -32,5 +38,19 @@ public class GestoreLibreriaTest {
         assertEquals(2, gestoreLibri.size());
         gestoreLibri.remove(gestoreLibri.getLibro("La coscienza di Zeno"));
         assertEquals(1, gestoreLibri.size());
+    }
+    @Test
+    public void testFiltroAutore(){
+        GestoreLibri temp = new GestoreLibriArray();
+        temp = gestoreLibri.filtroAutore("Italo Svevo");
+        Libro l = temp.getLibro("La coscienza di Zeno");
+        assertEquals("Italo Svevo", l.getAutore());
+    }
+    @Test
+    public void testFiltroGenere(){
+        GestoreLibri temp = new GestoreLibriArray();
+        temp = gestoreLibri.filtroGenere("Romanzo");
+        Libro l = temp.getLibro("La coscienza di Zeno");
+        assertEquals("Romanzo", l.getGenere());
     }
 }
