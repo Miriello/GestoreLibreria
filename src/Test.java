@@ -1,4 +1,5 @@
 import gestore.GestoreLibri;
+import gestore.GestoreLibriArray;
 import gestore.GestoreLibriFactory;
 import libro.Libro;
 import libro.StatoLettura;
@@ -21,4 +22,19 @@ public static void main(String[] args) {
     System.out.println(gestore.toString());
     System.out.println(gestore1.getClass());
     System.out.println(gestore1.toString());
+
+    GestoreLibriArray gestore2 = new GestoreLibriArray();
+    GestoreLibri gestore3 = GestoreLibriFactory.create("ArrayList");
+
+    gestore2.add(prova);
+    gestore2.add(prova1);
+    System.out.println(gestore2.toString());
+    System.out.println(gestore2.getClass());
+    gestore2.remove(prova);
+    System.out.println(gestore2.toString());
+    System.out.println(gestore2.getClass());
+    gestore2.remove(prova1);
+    System.out.println(gestore2.toString());
+    System.out.println(gestore2.getClass());
+
 }
