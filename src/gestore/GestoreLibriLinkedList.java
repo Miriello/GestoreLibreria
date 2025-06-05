@@ -2,9 +2,11 @@ package gestore;
 
 import libro.*;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.stream.Stream;
 
 public class GestoreLibriLinkedList implements GestoreLibri {
     private LinkedList<Libro> listaLibri = new LinkedList<>();
@@ -46,30 +48,39 @@ public class GestoreLibriLinkedList implements GestoreLibri {
         return sb.toString();
     }
 
+    //Implementazione che sfrutta gli stream per ordinare per TITOLO ed aggiungere ad un nuovo gestoreLibriLL
     @Override
     public GestoreLibri ordinaPerTitolo() {
-        return null;
+        GestoreLibri temp = GestoreLibriFactory.create("LinkedList");
+        listaLibri.stream().sorted(Comparator.comparing(Libro::getTitolo)).forEach(temp::add);
+        return temp;
     }
-
+    //Implementazione che sfrutta gli stream per ordinare per AUTORE ed aggiungere ad un nuovo gestoreLibriLL
     @Override
     public GestoreLibri ordinaPerAutore() {
-        return null;
+        GestoreLibri temp = GestoreLibriFactory.create("LinkedList");
+        listaLibri.stream().sorted(Comparator.comparing(Libro::getAutore)).forEach(temp::add);
+        return temp;
     }
-
+    //FiltroAutore basato su stream
     public GestoreLibri filtroAutore(String autore){
-        return null;
+        GestoreLibri temp = GestoreLibriFactory.create("LinkedList");
+        listaLibri.stream().filter(lib -> lib.getAutore().equals(autore)).forEach(temp::add);
+        return temp;
     }
-
+    //FiltroGenere basato su stream
     @Override
     public GestoreLibri filtroGenere(String genere) {
-        return null; /* new GestoreLibriLinkedList(new LinkedList<>(listaLibri.stream().filter(libro -> libro.getGenere().equals(genere)).collect(Collectors.toList())));
-        */
+        GestoreLibri temp = GestoreLibriFactory.create("LinkedList");
+        listaLibri.stream().filter(lib -> lib.getGenere().equals(genere)).forEach(temp::add);
+        return temp;
     }
-
+    //FiltroStatoLettura basato su stream
     @Override
     public GestoreLibri filtroStatoLettura(StatoLettura stato) {
-        return null; /* new GestoreLibriLinkedList(new LinkedList<>(listaLibri.stream().filter(libro -> libro.getStatoLettura().equals(stato)).collect(Collectors.toList())));
-    */
+        GestoreLibri temp = GestoreLibriFactory.create("LinkedList");
+        listaLibri.stream().filter(lib -> lib.getStatoLettura().equals(stato)).forEach(temp::add);
+        return temp;
     }
 
     @Override

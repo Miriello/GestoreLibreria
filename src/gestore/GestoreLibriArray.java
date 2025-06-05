@@ -44,7 +44,7 @@ public class GestoreLibriArray implements GestoreLibri {
         }
         return sb.toString();
     }
-
+    //Implementazione che utilizza una struttura ArrayList per poter fare il sort per TITOLO
     @Override
     public GestoreLibri ordinaPerTitolo() {
         ArrayList<Libro> tmp = new ArrayList<>();
@@ -60,7 +60,7 @@ public class GestoreLibriArray implements GestoreLibri {
         }
         return listaLibriOrdinata;
     }
-
+    //Implementazione che utilizza una struttura ArrayList per poter fare il sort per AUTORE
     @Override
     public GestoreLibri ordinaPerAutore() {
         ArrayList<Libro> tmp = new ArrayList<>();
@@ -76,7 +76,7 @@ public class GestoreLibriArray implements GestoreLibri {
         }
         return listaLibriOrdinata;
     }
-
+    // FiltroGenere implementato con il forEach
     @Override
     public GestoreLibri filtroGenere(String genere) {
         GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
@@ -86,7 +86,7 @@ public class GestoreLibriArray implements GestoreLibri {
         }
         return gestoreLibri;
     }
-
+    //FiltroStatoLettura implementato con il forEach
     @Override
     public GestoreLibri filtroStatoLettura(StatoLettura stato) {
         GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
@@ -96,7 +96,7 @@ public class GestoreLibriArray implements GestoreLibri {
         }
         return gestoreLibri;
     }
-
+    //FiltroAutore implementato con il forEach
     public GestoreLibri filtroAutore(String autore){
         if(autore == null)
             return GestoreLibriFactory.create("ArrayList");
