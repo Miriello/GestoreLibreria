@@ -12,7 +12,9 @@ public class GestoreLibreriaTest {
 
     @BeforeEach
     public void inizio() {
-        gestoreLibri = GestoreLibriFactory.create("LinkedList");
+        // Il metodo create da la possibilità di decidere per quale classe far partire i test
+
+        gestoreLibri = GestoreLibriFactory.create("HashMap");
         gestoreLibri.add(new Libro("La coscienza di Zeno", "Italo Svevo", 00001, "Romanzo", null, StatoLettura.DALEGGERE));
         gestoreLibri.add(new Libro("Novecento", "Alessandro Baricco", 00002, "Teatrale", Valutazione.CINQUE, StatoLettura.LETTO));
     }
