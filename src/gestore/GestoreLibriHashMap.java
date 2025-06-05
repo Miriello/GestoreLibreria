@@ -25,12 +25,12 @@ public class GestoreLibriHashMap implements GestoreLibri {
     }
 
     @Override
-    public GestoreLibri ordinaPerTitolo(GestoreLibri listaLibri) {
+    public GestoreLibri ordinaPerTitolo() {
         return null;
     }
 
     @Override
-    public GestoreLibri ordinaPerAutore(GestoreLibri listaLibri) {
+    public GestoreLibri ordinaPerAutore() {
         return null;
     }
 

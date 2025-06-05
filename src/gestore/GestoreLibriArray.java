@@ -46,11 +46,11 @@ public class GestoreLibriArray implements GestoreLibri {
     }
 
     @Override
-    public GestoreLibri ordinaPerTitolo(GestoreLibri listaLibri) {
+    public GestoreLibri ordinaPerTitolo() {
         ArrayList<Libro> tmp = new ArrayList<>();
-        GestoreLibri listaLibriOrdinata = new GestoreLibriArray();
+        GestoreLibri listaLibriOrdinata = GestoreLibriFactory.create("ArrayList");
 
-        for (Libro lib : listaLibri){
+        for (Libro lib : this){
             tmp.add(lib);
         }
         tmp.sort(Comparator.comparing(Libro::getTitolo));
@@ -62,11 +62,11 @@ public class GestoreLibriArray implements GestoreLibri {
     }
 
     @Override
-    public GestoreLibri ordinaPerAutore(GestoreLibri listaLibri) {
+    public GestoreLibri ordinaPerAutore() {
         ArrayList<Libro> tmp = new ArrayList<>();
-        GestoreLibri listaLibriOrdinata = new GestoreLibriArray();
+        GestoreLibri listaLibriOrdinata = GestoreLibriFactory.create("ArrayList");
 
-        for (Libro lib : listaLibri){
+        for (Libro lib : this){
             tmp.add(lib);
         }
         tmp.sort(Comparator.comparing(Libro::getAutore));
@@ -79,7 +79,7 @@ public class GestoreLibriArray implements GestoreLibri {
 
     @Override
     public GestoreLibri filtroGenere(String genere) {
-        GestoreLibri gestoreLibri = new GestoreLibriArray();
+        GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
         for(Libro lib : listaLibri){
             if(lib.getGenere().equals(genere))
                 gestoreLibri.add(lib);
@@ -89,7 +89,7 @@ public class GestoreLibriArray implements GestoreLibri {
 
     @Override
     public GestoreLibri filtroStatoLettura(StatoLettura stato) {
-        GestoreLibri gestoreLibri = new GestoreLibriArray();
+        GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
         for(Libro lib : listaLibri){
             if(lib.getStatoLettura().equals(stato))
                 gestoreLibri.add(lib);

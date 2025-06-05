@@ -10,9 +10,9 @@ public interface GestoreLibri extends Iterable<Libro>{
 
     public int size();
 
-    public GestoreLibri ordinaPerTitolo(GestoreLibri listaLibri);
+    public GestoreLibri ordinaPerTitolo();
 
-    public GestoreLibri ordinaPerAutore(GestoreLibri listaLibri);
+    public GestoreLibri ordinaPerAutore();
 
     public GestoreLibri filtroAutore(String autore);
 

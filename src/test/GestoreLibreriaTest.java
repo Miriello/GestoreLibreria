@@ -68,7 +68,7 @@ public class GestoreLibreriaTest {
     @Test
     public void testOrdinaPerTitolo() {
         GestoreLibri temp = new GestoreLibriArray();
-        temp = gestoreLibri.ordinaPerTitolo(gestoreLibri);
+        temp = gestoreLibri.ordinaPerTitolo();
         Libro l = temp.getLibro("La coscienza di Zeno");
         assertEquals("La coscienza di Zeno", l.getTitolo());
     }
