@@ -79,6 +79,8 @@ public class GestoreLibriArray implements GestoreLibri {
     // FiltroGenere implementato con il forEach
     @Override
     public GestoreLibri filtroGenere(String genere) {
+        if(genere == null)
+            return GestoreLibriFactory.create("ArrayList");
         GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
         for(Libro lib : listaLibri){
             if(lib.getGenere().equals(genere))

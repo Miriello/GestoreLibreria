@@ -62,15 +62,19 @@ public class GestoreLibriLinkedList implements GestoreLibri {
         listaLibri.stream().sorted(Comparator.comparing(Libro::getAutore)).forEach(temp::add);
         return temp;
     }
-    //FiltroAutore basato su stream
+    //FiltroAutore basato su stream, con controllo su input null
     public GestoreLibri filtroAutore(String autore){
+        if(autore == null)
+            return GestoreLibriFactory.create("ArrayList");
         GestoreLibri temp = GestoreLibriFactory.create("LinkedList");
         listaLibri.stream().filter(lib -> lib.getAutore().equals(autore)).forEach(temp::add);
         return temp;
     }
-    //FiltroGenere basato su stream
+    //FiltroGenere basato su stream, con controllo su input null
     @Override
     public GestoreLibri filtroGenere(String genere) {
+        if(genere == null)
+            return GestoreLibriFactory.create("ArrayList");
         GestoreLibri temp = GestoreLibriFactory.create("LinkedList");
         listaLibri.stream().filter(lib -> lib.getGenere().equals(genere)).forEach(temp::add);
         return temp;

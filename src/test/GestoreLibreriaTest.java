@@ -12,7 +12,7 @@ public class GestoreLibreriaTest {
 
     @BeforeEach
     public void inizio() {
-        gestoreLibri = new GestoreLibriArray();
+        gestoreLibri = GestoreLibriFactory.create("LinkedList");
         gestoreLibri.add(new Libro("La coscienza di Zeno", "Italo Svevo", 00001, "Romanzo", null, StatoLettura.DALEGGERE));
         gestoreLibri.add(new Libro("Novecento", "Alessandro Baricco", 00002, "Teatrale", Valutazione.CINQUE, StatoLettura.LETTO));
     }
