@@ -2,14 +2,16 @@ package test;
 
 import database.*;
 import gestore.*;
+import GUI.LibreriaGUI;
+import libreria.*;
 import libro.*;
 
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
+       /* GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
 
         gestoreLibri.add(new Libro("Il giovane Holden", "J.D. Salinger", 123456, "Narrativa", Valutazione.CINQUE, StatoLettura.LETTO));
         gestoreLibri.add(new Libro("1984", "George Orwell", 789012, "Distopico", Valutazione.QUATTRO, StatoLettura.INLETTURA));
@@ -27,9 +29,15 @@ public class Main {
         } catch (IOException e) {
             System.err.println("Errore durante il salvataggio: " + e.getMessage());
         }
+*/
+        GestoreFile prova = new GestoreFileDat();
+        GestoreLibri prova1 = prova.caricaFile("Libreria.dat");
+        Libreria libreria = new Libreria(prova, prova1);
+        LibreriaGUI gui = new LibreriaGUI(libreria);
+
+        }
 
 
 
     }
-}
 

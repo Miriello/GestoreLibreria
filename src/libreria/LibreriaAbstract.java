@@ -4,6 +4,9 @@ import database.*;
 import gestore.*;
 import libro.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public abstract class LibreriaAbstract {
     protected GestoreFile gestoreFile;
@@ -23,6 +26,10 @@ public abstract class LibreriaAbstract {
     public Libro getLibro(String titolo){
         return gestoreLibri.getLibro(titolo);
     }
+    public Iterable<Libro> getLibri(){
+        return gestoreLibri;
+    }
+
     public int size(){
         return gestoreLibri.size();
     }
