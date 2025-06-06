@@ -50,11 +50,11 @@ public abstract class LibreriaAbstract {
     }
     //RESTITUISCE UNA RAPPRESENTAZIONE TEMPORANEA
     public GestoreLibri filtroGenere(String genere){
-        return gestoreLibri.filtroGenere(genere);
+        return gestoreLibri = gestoreLibri.filtroGenere(genere);
     }
     //RESTITUISCE UNA RAPPRESENTAZIONE TEMPORANEA
     public GestoreLibri filtroStatoLettura(StatoLettura stato){
-        return gestoreLibri.filtroStatoLettura(stato);
+        return gestoreLibri = gestoreLibri.filtroStatoLettura(stato);
     }
     public void salvaFile(String percorso){
         try {

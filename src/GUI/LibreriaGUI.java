@@ -37,7 +37,10 @@ public class LibreriaGUI extends JFrame{
         menuItemSalvaConNome.addActionListener(e-> salvaConNome());
         JMenuItem menuItemApri = new JMenuItem("Apri");
         menuItemApri.addActionListener(e-> apri());
+        JMenuItem menuItemNuovo = new JMenuItem("Nuovo");
+        menuItemNuovo.addActionListener(e-> NuovaLibreria());
         barraMenu.add(menuFile);
+        barraMenu.add(menuItemNuovo);
         menuFile.add(menuItemApri);
         menuFile.add(menuItemSalva);
         menuFile.add(menuItemSalvaConNome);
@@ -165,6 +168,10 @@ public class LibreriaGUI extends JFrame{
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Errore durante il caricamento: " + e.getMessage());
         }
+    }
+
+    public void NuovaLibreria(){
+
     }
 
 }
