@@ -30,8 +30,8 @@ public class GestoreFileDat implements GestoreFile {
                 StringTokenizer tokenizer = new StringTokenizer(riga, "-");
                 String titolo = tokenizer.nextToken().trim();
                 String autore = tokenizer.nextToken().trim();
-                int codiceISBN = Integer.parseInt(tokenizer.nextToken().trim());
                 String genere = tokenizer.nextToken().trim();
+                int codiceISBN = Integer.parseInt(tokenizer.nextToken().trim());
                 Valutazione valutazione = Valutazione.valueOf(tokenizer.nextToken().trim());
                 StatoLettura stato = StatoLettura.valueOf(tokenizer.nextToken().trim());
 

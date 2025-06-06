@@ -65,7 +65,7 @@ public abstract class LibreriaAbstract {
     }
     public GestoreLibri caricaFile(String percorso){
         try {
-            return gestoreFile.caricaFile(percorso);
+            return this.gestoreLibri= gestoreFile.caricaFile(percorso);
         } catch (Exception e) {
             System.err.println("Errore durante il caricamento: " + e.getMessage());
             return null;

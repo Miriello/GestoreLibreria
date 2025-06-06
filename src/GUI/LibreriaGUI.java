@@ -32,12 +32,11 @@ public class LibreriaGUI extends JFrame{
         //FILE > CARICA / SALVA
         JMenu menuFile = new JMenu("File");
         JMenuItem menuItemSalva = new JMenuItem("Salva");
+        menuItemSalva.addActionListener(e -> libreria.salvaFile("Libreria.dat"));
         JMenuItem menuItemSalvaConNome= new JMenuItem("Salva con nome");
+        menuItemSalvaConNome.addActionListener(e-> salvaConNome());
         JMenuItem menuItemApri = new JMenuItem("Apri");
-        menuItemSalva.addActionListener(listener);
-        menuItemSalvaConNome.addActionListener(listener);
-        menuItemApri.addActionListener(listener);
-        menuItemSalva.addActionListener(listener);
+        menuItemApri.addActionListener(e-> apri());
         barraMenu.add(menuFile);
         menuFile.add(menuItemApri);
         menuFile.add(menuItemSalva);
@@ -98,10 +97,7 @@ public class LibreriaGUI extends JFrame{
 
     }
     public void mostraCrediti(){
-        JFrame crediti = new JFrame("Crediti");
-        setSize(400,400);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        setVisible(true);
+        JOptionPane.showMessageDialog(this, "Progetto di Francesco Miriello 251641");
     }
 
     public void aggiungiLibro(){
@@ -124,6 +120,22 @@ public class LibreriaGUI extends JFrame{
             aggiornaTabella();
         }else{
             JOptionPane.showMessageDialog(this, "Libro non trovato");
+        }
+    }
+    public void salvaConNome(){
+        String nomeFile = JOptionPane.showInputDialog("Inserisci il nome del file");
+        libreria.salvaFile(nomeFile);
+    }
+
+    public void apri(){
+        String nomeFile = JOptionPane.showInputDialog("Inserisci il nome del file");
+        try {
+            System.out.println("Caricamento in corso...");
+            libreria.caricaFile(nomeFile);
+            aggiornaTabella();
+            System.out.println("Caricamento completato!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Errore durante il caricamento: " + e.getMessage());
         }
     }
 
