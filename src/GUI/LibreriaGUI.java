@@ -69,10 +69,37 @@ public class LibreriaGUI extends JFrame{
         menuOrdina.add(menuItemOrdinaTitolo);
         menuOrdina.add(menuItemOrdinaAutore);
 
+        //FILTRA > PER GENERE / PER AUTORE / PER STATO LETTURA
+        JMenu menuFiltra = new JMenu("Filtra");
+        JMenuItem menuItemFiltraGenere = new JMenuItem("Per Genere");
+        menuItemFiltraGenere.addActionListener(e -> {
+            String genere = JOptionPane.showInputDialog("Inserisci il genere da cercare");
+            libreria.filtroGenere(genere);
+            aggiornaTabella();
+                });
+        JMenuItem menuItemFiltraAutore = new JMenuItem("Per Autore");
+        menuItemFiltraAutore.addActionListener(e -> {
+            String autore = JOptionPane.showInputDialog("Inserisci l'autore da cercare");
+            libreria.filtroAutore(autore);
+            aggiornaTabella();
+            });
+        JMenuItem menuItemFiltraStatoLettura = new JMenuItem("Per Stato Lettura");
+        menuItemFiltraStatoLettura.addActionListener(e -> {
+            StatoLettura stato = StatoLettura.valueOf(JOptionPane.showInputDialog("Inserisci lo stato da cercare"));
+            libreria.filtroStatoLettura(stato);
+            aggiornaTabella();
+            });
+        barraMenu.add(menuFiltra);
+        menuFiltra.add(menuItemFiltraGenere);
+        menuFiltra.add(menuItemFiltraAutore);
+        menuFiltra.add(menuItemFiltraStatoLettura);
+
         //CREDITI
         JMenu menuCrediti = new JMenu("Crediti");
-        menuCrediti.addActionListener(e -> mostraCrediti());
+        JMenuItem crediti = new JMenuItem("Mostra Crediti");
+        crediti.addActionListener(e -> mostraCrediti());
         barraMenu.add(menuCrediti);
+        menuCrediti.add(crediti);
 
         setJMenuBar(barraMenu);
 
@@ -96,9 +123,10 @@ public class LibreriaGUI extends JFrame{
         }
 
     }
-    public void mostraCrediti(){
-        JOptionPane.showMessageDialog(this, "Progetto di Francesco Miriello 251641");
-    }
+        public void mostraCrediti(){
+            JOptionPane.showMessageDialog(this, "Progetto di Francesco Miriello, Matricola 251641");
+            System.out.println("Progetto di Francesco Miriello, Matricola 251641");
+        }
 
     public void aggiungiLibro(){
         String titolo = JOptionPane.showInputDialog("Inserisci il titolo del libro");
