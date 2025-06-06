@@ -117,15 +117,13 @@ public class LibreriaGUI extends JFrame{
     }
 
     public void rimuoviLibro(){
-        int rigaSelezionata = tabellaLibri.getSelectedRow();
-        if(rigaSelezionata != -1){
-            String titolo = (String) tabellaLibri.getValueAt(rigaSelezionata, 0);
-            String autore = (String) tabellaLibri.getValueAt(rigaSelezionata, 1);
-            int codiceISBN = (int) tabellaLibri.getValueAt(rigaSelezionata, 2);
-            String genere = (String) tabellaLibri.getValueAt(rigaSelezionata, 3);
-            Valutazione valutazione = Valutazione.valueOf((String) tabellaLibri.getValueAt(rigaSelezionata, 4));
-            StatoLettura stato = StatoLettura.valueOf((String) tabellaLibri.getValueAt(rigaSelezionata, 5));
-            Libro libro = new Libro(titolo, autore, codiceISBN, genere, valutazione, stato);
+        String titolo = JOptionPane.showInputDialog("Inserisci il titolo del libro da rimuovere");
+        Libro libro = libreria.getLibro(titolo);
+        if(libro != null){
+            libreria.remove(libro);
+            aggiornaTabella();
+        }else{
+            JOptionPane.showMessageDialog(this, "Libro non trovato");
         }
     }
 
