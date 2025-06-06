@@ -1,6 +1,8 @@
 package libro;
 
-public class Libro {
+import java.io.Serializable;
+
+public class Libro implements Serializable {
     private String titolo;
     private String autore;
     private int codiceISBN;
