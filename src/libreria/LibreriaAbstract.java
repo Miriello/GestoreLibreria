@@ -36,26 +36,17 @@ public abstract class LibreriaAbstract {
     public String toString(){
         return gestoreLibri.toString();
     }
-    // MODIFICA LO STATO DELL'ISTANZA
+
     public GestoreLibri ordinaPerTitolo(){
         return gestoreLibri = gestoreLibri.ordinaPerTitolo();
     }
-    //MODIFICA LO STATO DELL'ISTANZA
     public GestoreLibri ordinaPerAutore(){
         return gestoreLibri = gestoreLibri.ordinaPerAutore();
     }
-    //RESTITUISCE UNA RAPPRESENTAZIONE TEMPORANEA
-    public GestoreLibri filtroAutore(String autore){
-        return gestoreLibri.filtroAutore(autore);
-    }
-    //RESTITUISCE UNA RAPPRESENTAZIONE TEMPORANEA
-    public GestoreLibri filtroGenere(String genere){
-        return gestoreLibri = gestoreLibri.filtroGenere(genere);
-    }
-    //RESTITUISCE UNA RAPPRESENTAZIONE TEMPORANEA
-    public GestoreLibri filtroStatoLettura(StatoLettura stato){
-        return gestoreLibri = gestoreLibri.filtroStatoLettura(stato);
-    }
+    public GestoreLibri filtroAutore(String autore){return gestoreLibri = gestoreLibri.filtroAutore(autore);}
+    public GestoreLibri filtroGenere(String genere){return gestoreLibri = gestoreLibri.filtroGenere(genere);}
+    public GestoreLibri filtroStatoLettura(StatoLettura stato){return gestoreLibri = gestoreLibri.filtroStatoLettura(stato);}
+
     public void salvaFile(String percorso){
         try {
             gestoreFile.salvaFile(gestoreLibri, percorso);

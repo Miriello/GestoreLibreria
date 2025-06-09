@@ -48,66 +48,55 @@ public class GestoreLibriArray implements GestoreLibri {
     @Override
     public GestoreLibri ordinaPerTitolo() {
         ArrayList<Libro> tmp = new ArrayList<>();
-        GestoreLibri listaLibriOrdinata = GestoreLibriFactory.create("ArrayList");
-
         for (Libro lib : this){
             tmp.add(lib);
         }
         tmp.sort(Comparator.comparing(Libro::getTitolo));
-
-        for(Libro lib : tmp){
-            listaLibriOrdinata.add(lib);
-        }
-        return listaLibriOrdinata;
+        return (GestoreLibri) tmp;
     }
     //Implementazione che utilizza una struttura ArrayList per poter fare il sort per AUTORE
     @Override
     public GestoreLibri ordinaPerAutore() {
         ArrayList<Libro> tmp = new ArrayList<>();
-        GestoreLibri listaLibriOrdinata = GestoreLibriFactory.create("ArrayList");
-
         for (Libro lib : this){
             tmp.add(lib);
         }
         tmp.sort(Comparator.comparing(Libro::getAutore));
 
-        for(Libro lib : tmp){
-            listaLibriOrdinata.add(lib);
-        }
-        return listaLibriOrdinata;
+        return (GestoreLibri) tmp;
     }
     // FiltroGenere implementato con il forEach
     @Override
     public GestoreLibri filtroGenere(String genere) {
+        ArrayList<Libro> tmp = new ArrayList<>();
         if(genere == null)
-            return GestoreLibriFactory.create("ArrayList");
-        GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
+            return (GestoreLibri) tmp;
         for(Libro lib : listaLibri){
             if(lib.getGenere().equals(genere))
-                gestoreLibri.add(lib);
+                tmp.add(lib);
         }
-        return gestoreLibri;
+        return (GestoreLibri) tmp;
     }
     //FiltroStatoLettura implementato con il forEach
     @Override
     public GestoreLibri filtroStatoLettura(StatoLettura stato) {
-        GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
+        ArrayList<Libro> tmp = new ArrayList<>();
         for(Libro lib : listaLibri){
             if(lib.getStatoLettura().equals(stato))
-                gestoreLibri.add(lib);
+                tmp.add(lib);
         }
-        return gestoreLibri;
+        return (GestoreLibri) tmp;
     }
     //FiltroAutore implementato con il forEach
     public GestoreLibri filtroAutore(String autore){
+        ArrayList<Libro> tmp = new ArrayList<>();
         if(autore == null)
-            return GestoreLibriFactory.create("ArrayList");
-        GestoreLibri gestoreLibri = GestoreLibriFactory.create("ArrayList");
+            return (GestoreLibri) tmp;
         for(Libro lib : listaLibri){
-            if(lib.getAutore().equalsIgnoreCase(autore))
-                gestoreLibri.add(lib);
+            if(lib.getAutore().equals(autore))
+                tmp.add(lib);
         }
-        return gestoreLibri;
+        return (GestoreLibri) tmp;
     }
 
 

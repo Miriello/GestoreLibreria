@@ -40,7 +40,7 @@ public class LibreriaGUI extends JFrame{
         JMenuItem menuItemNuovo = new JMenuItem("Nuovo");
         menuItemNuovo.addActionListener(e-> NuovaLibreria());
         barraMenu.add(menuFile);
-        barraMenu.add(menuItemNuovo);
+        menuFile.add(menuItemNuovo);
         menuFile.add(menuItemApri);
         menuFile.add(menuItemSalva);
         menuFile.add(menuItemSalvaConNome);
@@ -52,9 +52,15 @@ public class LibreriaGUI extends JFrame{
         menuItemAggiungi.addActionListener(e -> aggiungiLibro());
         JMenuItem menuItemRimuovi = new JMenuItem("Rimuovi");
         menuItemRimuovi.addActionListener(e -> rimuoviLibro());
+        JMenuItem menuItemIndietro = new JMenuItem("Indietro");
+        menuItemIndietro.addActionListener(e -> aggiornaTabella());
+        JMenuItem menuItemAvanti = new JMenuItem("Avanti");
+        menuItemAvanti.addActionListener(e -> aggiornaTabella());
         barraMenu.add(menuOpzioni);
         menuOpzioni.add(menuItemAggiungi);
         menuOpzioni.add(menuItemRimuovi);
+        menuOpzioni.add(menuItemIndietro);
+        menuOpzioni.add(menuItemAvanti);
 
         //ORDINA > PER TITOLO / PER AUTORE
         JMenu menuOrdina = new JMenu("Ordina");
@@ -119,11 +125,13 @@ public class LibreriaGUI extends JFrame{
         add(scrollPane);
     }
     public void aggiornaTabella(){
+        System.out.println("Aggiornamento tabella...");
         tableModel.setRowCount(0);
         for(Libro l : libreria.getLibri()){
             Object[] riga = {l.getTitolo(), l.getAutore(), l.getGenere(), l.getCodiceISBN(), l.getValutazionePersonale(), l.getStatoLettura()};
             tableModel.addRow(riga);
         }
+        System.out.println("Aggiornamento tabella completato!");
 
     }
         public void mostraCrediti(){
